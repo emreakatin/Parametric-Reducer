@@ -141,123 +141,7 @@
     
 )
 
-; civata kodları
 
-  (defun civata ()
-  
-  (command "osmode" 0)
-  (command "erase" "all" "")
-  (command "view" "swiso" "")
-  (command "shademode" "g" "")
-  
-  
-  
-  (princ "\TS EN 24018 STANDARDINA UYGUN BiR DEÐER GÝRÝNÝZ...(metrik : 6-8-10)")(terpri)
-  (setq d (getreal "\nAnma Capini Giriniz :"))
-
-
-  (if (= d 6)
-    (progn
-       (setq hatve 1.00)
-       (setq k 7.45)
-       (setq da 14.45)
-       (setq v 6)
-       (setq r 0.11)
-       (setq e 5.72)
-    
-      ))
-
-  (if (= d 8)
-    (progn
-       (setq hatve 1.25)
-       (setq k 9.45)
-       (setq da 20.55)
-       (setq v 8)
-       (setq r 0.14)
-       (setq e 6.86)
-    
-      ))
-  
-  (if (= d 10)
-    (progn
-       (setq hatve 1.50)
-       (setq k 11.45)
-       (setq da 24.55)
-       (setq v 10)
-       (setq r 0.16)
-       (setq e 9.15)
-      
-      ))
-                                     
-                         
-(setq disboyu (* 3.5 d))
-(setq anmaboyu (* 4.5 d))
-  
-(setq pmer3 (list 0 0 0))
-(command "polygon" "4" pmer3 "c" (/ v 2) "")
-(setq pol1 (entlast))
-(command "extrude" pol1 "" (- k (/ k 3.5)) "") 
-(command "ucs" pmer3 "")	
-(command "circle" "0,0,0" (/ da 2) "")  
-(setq cember2 (entlast))  
-(command "ucs" "y" 180)  
-(command "extrude" cember2 "" "t" 30 (/ k 3.5) "")
-(command "union" "all" "")
-(setq polymerkez (list 0 0 (/ k 3.5)))  
-(command "polygon" 6 polymerkez "i" (/ da 2) "")  
-(command "ucs" "y" 180)  
-(setq cokgen (entlast))  
-(command "extrude" cokgen "" k "")
-(command "intersect" "all" "")
-(setq merkezyeni (list 0 0 (- k (/ k 3.5)))) 
-(command "ucs" merkezyeni "") 
-(setq boymerkez (list 0 0 0)) 
-(command "circle" boymerkez (/ d 2) "")  
-(command "extrude" "last" "" anmaboyu"")  
-(setq silindir (entlast))
-(command "union" "all" "")
-(setq hmz (- anmaboyu disboyu)) 
-(setq helixmerkez (list 0 0 hmz)) 
-(setq turn (fix(+(/ disboyu hatve)2))) 
-(command "helix" helixmerkez (/ d 2)(/ d 2) "t" turn "h" hatve "" )  
-(setq helix (entlast))
-(setq yenimerkez (list 0 0 anmaboyu))
-(command "ucs" yenimerkez "")  
-(command "circle" "0,0,0" (/ d 2) "")  
-(setq pahcember (entlast))  
-(command "extrude" pahcember "" "t" 30 (/ hatve 1.5) "") 
-(setq pahlýcember (entlast))  
-(command "union" pahlýcember silindir "")  
-(setq civataboyu (entlast))  
-(setq eskimerkez (list 0 0 (- anmaboyu (* anmaboyu 2))))  
-(command "ucs" eskimerkez "") 
-(setq ucgenmerkez(list (/ d 2) 0 (- anmaboyu disboyu))) 
-(command "ucs" ucgenmerkez "")  
-(command "ucs" "x" 90 "")  
-(setq merkezyeni2 (list 0 0 0))  
-(setq ucgencemberyaricapi (* hatve 0.576))  
-(command "polygon" 3 merkezyeni2 "i" ucgencemberyaricapi "")  
-(setq ucgen (entlast))  
-(command "fillet" "r" r "")  
-(command "fillet" "p" ucgen)  
-(command "rotate" ucgen "" merkezyeni2 90)
-(setq ucgentasimamerkez (list ucgencemberyaricapi 0 0))  
-(command "move" ucgen "" merkezyeni2 ucgentasimamerkez "")  
-(command "ucs" "y" 180)  
-(setq ucgentasimamerkez2 (list (* hatve 0.8660) 0 0))  
-(command "move" ucgen "" merkezyeni2 ucgentasimamerkez2 "")
-(setq kaymamerkez (list -0.25 0 0))  
-(command "move" ucgen"" merkezyeni2 kaymamerkez "")
-(command "sweep" ucgen"" "b" merkezyeni2 helix)  
-(setq yay (entlast))  
-(command "subtract" civataboyu"" yay"")
-(command "union" "all" "")
-(command "erase" helix "")
-(setq boltlast (entlast))
-(command "shademode" "g" "c" "")   
-(command "zoom" "e")
-
-)
 
 
 (defun c:Disli ()
@@ -265,13 +149,7 @@
   (gear)
   (gear1)
   
-  (setq civ (getreal "\n civata baskmak ister misiniz evet ise 1 e basınız "))
   
-  (if (= civ 1) 
-  
-  
-  (civata) 
     
-  )
   
 )
