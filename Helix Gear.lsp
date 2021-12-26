@@ -1,4 +1,4 @@
-(defun hels ()
+(defun c:hels ()
    
     (progn
       	  (setq mn 0
@@ -55,7 +55,7 @@
 	      radius (* 0.166 mn)
 	 )
   	(setq mrk (list d d))
-	  ;	(command "erase" "all" "")
+	  	(command "erase" "all" "")
   		(command "circle" mrk "d" (+ (* 20 mn) da))
 	      	(command "zoom" "extents")
 	        (command "erase" "l" "")
@@ -161,14 +161,6 @@
   		(command "_vscurrent" "_C")
   	;/ HELÝS DÝÞLÝ ÇÝZÝMÝ 3B BÝTTÝ
 )
-
-
-)
-
-(defun c:set ()
-  
-
-  (hels)
 
 
 )
