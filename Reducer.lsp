@@ -637,8 +637,10 @@
 
 (defun road ()
   
+  (setq mcapv2 (- mcap 3))
+  
   (setq cen (list 0 0 0))
-  (setq cem (list 7 7 0))
+  (setq cem (list mcapv2 mcapv2 0))
   (command "cylinder" cen cem 100) 
   
 
