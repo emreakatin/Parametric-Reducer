@@ -613,16 +613,20 @@
       (command "trim" secme "" t2 "")
       (command "trim" secme "" "f" k1 k2 "" "")
       (setq hepsi (ssget "x"))
-      (command "mirror" hepsi "" m1 m2 "")
-      (command "pedit" "l" "" "j" "all" "" "" )
-      (command "revolve" "all" "" "x" "360" "")
+      (command "pedit" "all" "" "j" "all" "" "" )
+      (setq sec (ssget "l"))
+      (command "mirror" sec "" m1 m2 "")
+      (command "pedit" "all" "" "j" "all" "" "" )
+      (setq rev (ssget "l"))
+      (command "revolve" rev "" "x" "360" "")
       (command "view" "swiso")
       (command "zoom" "e" "")
       
       ;Bilyeler
       (command "sphere" c1 s "") 
       (command "ucs" "y" "")
-      (command "array" "l" "" "p" 0 y "" "")
+      (setq bily (ssget "l" ))
+      (command "array" bily "" "p" 0 y "" "")
       (command "shademode" "g" "c" "")
       (command "change" "all" "" "p" "color" "253" "")
 
@@ -680,11 +684,22 @@
 
 (defun c:set ()
   
-;helix gears
-  (knm1)
-;conic gears
-  (knm3)
-  ;(helc)
+ (command "osmode" "0" )
+
+  
+    ;helix gears
+      (knm1)
+    ;conic gears
+
+      
+      (knm3)
+
+      
+      
+    ;(bearing)
+
+    ;(knm2)
+    ;(helc)
   
   
   
