@@ -651,19 +651,26 @@
 
 
 
-
-
 (defun c:set ()
   
  (command "osmode" "0" )
 
   
     (bearing)
+    (command "export" "ahmet.sat" "all" "")
+    (command "erase" "all" "" )
   
-  
-  
-  
+    (hels)
+    (command "export" "mehmet.sat" "all" "")
+    (command "erase" "all" "")
 
+    (road)
+    (command "export" "aslı.sat" "all" "")
+    (command "erase" "all" "")
+  
+    (command "import" "aslı.sat" "")
+    (command "import" "ahmet.sat" "")
+    (command "import" "mehmet.sat" "")
   
 
 )
