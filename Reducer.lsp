@@ -644,7 +644,7 @@
   
   (setq cen (list 0 0 0))
   (setq cem (list mcapv2 mcapv2 0))
-  (command "cylinder" cen cem 100) 
+  (command "cylinder" cen cem 200) 
   
 
 )
@@ -667,10 +667,36 @@
     (road)
     (command "export" "aslı.sat" "all" "")
     (command "erase" "all" "")
+    
+  
+    
+    
+    
+    (command "import" "ahmet.sat" "")
+    (command "rotate3d" "all" "" "y" (list 0 0 0) "90" )
+    (command "copyclip" "all" "" )
+    (command "erase" "all" "" )
+    (command "pasteclip" (list 0 0 0))
+    (command "pasteclip" (list 0 0 200))
+    (command "pasteclip" (list 80 0 0))
+    (command "pasteclip" (list 80 0 200))
+  
   
     (command "import" "aslı.sat" "")
-    (command "import" "ahmet.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 0 0 0))
+    (command "pasteclip" (list 80 0 0))
+
+
     (command "import" "mehmet.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 0 0 30))
+    (command "pasteclip" (list 80 0 30))
+    (command "pasteclip" (list 80 0 135))
+
+    (command "zoom" "e" "")
     
   
 
