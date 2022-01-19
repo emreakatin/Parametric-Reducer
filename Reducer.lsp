@@ -670,7 +670,7 @@
   
     (command "import" "aslı.sat" "")
     (command "import" "ahmet.sat" "")
-    (command "import" "ahmet.sat" "")
+    (command "import" "mehmet.sat" "")
     
   
 
