@@ -54,7 +54,7 @@
 	      tda (- d (* y 2))
 	      radius (* 0.166 mn)
 	 )
-  	(setq mrk (list d d))
+  	(setq mrk (list 0 0))
 	  	(command "erase" "all" "")
   		(command "circle" mrk "d" (+ (* 20 mn) da))
 	      	(command "zoom" "extents")
