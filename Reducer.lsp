@@ -640,7 +640,7 @@
 
 (defun road ()
   
-  (setq mcapv2 (- mcap 3))
+  (setq mcapv2 (- mcap 6))
   
   (setq cen (list 0 0 0))
   (setq cem (list mcapv2 mcapv2 0))
@@ -676,17 +676,17 @@
     (command "rotate3d" "all" "" "y" (list 0 0 0) "90" )
     (command "copyclip" "all" "" )
     (command "erase" "all" "" )
-    (command "pasteclip" (list 0 0 0))
-    (command "pasteclip" (list 0 0 200))
-    (command "pasteclip" (list 80 0 0))
-    (command "pasteclip" (list 80 0 200))
+    (command "pasteclip" (list 0 -3 0))
+    (command "pasteclip" (list 0 -3 200))
+    (command "pasteclip" (list 80 -3 0))
+    (command "pasteclip" (list 80 -3 200))
   
   
     (command "import" "aslı.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list 0 0 0))
-    (command "pasteclip" (list 80 0 0))
+    (command "pasteclip" (list 14 0 0))
+    (command "pasteclip" (list 95 0 0))
 
 
     (command "import" "mehmet.sat" "")
