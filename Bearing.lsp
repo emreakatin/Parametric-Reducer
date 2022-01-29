@@ -1,5 +1,5 @@
 (defun c:sbtr()
-(setq çap (getreal "\n Mil çapýný giriniz (min 0 max 80) :"))
+(setq çap 40 )
 
 
 (setq b 0)
