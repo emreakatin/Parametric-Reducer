@@ -6,40 +6,18 @@
 		secimhelis ""
                 be 0)
 
-	  (initget 1 "SAð SOl")
-  	  (setq secimhelis (getkword "Helis tipini seçiniz (SAð/SOl): "))
-  
-	  (if (= secimhelis "SAð") (setq secimhelis "CCW"))
-	  (if (= secimhelis "SOl") (setq secimhelis "CW"))
-	  (while (or (= mn 0) (< mn 1))
-      	      (progn
-              (princ " 1 veya 1 den büyük giriniz...") (terpri)
-              (setq mn (getreal "\n Modül giriniz : "))
-          ))
-          (while (or (= z 0) (< z 14))
-      	      (progn
-              (princ " 14 veya 14 den büyük giriniz...") (terpri)
-              (setq z (getint "\n Diþ sayýsýný giriniz : "))
-          ))
-	  (initget 1 "Derece Radyan")
-          (setq aci (getkword "Eðim açýsýnýn cinsi (Derece/Radyan) : "))
-	  (if (= aci "Derece")
-	    (progn  
-            (while (or (= be 0) (< be 1) (> be 20))
-                (progn
-                (princ " En az 1 en fazla 20 derece girebilirsiniz...") (terpri)
-                (setq be (getreal "\n Eðim açýsýný giriniz :"))
-	    ))
-	    (setq be (/ (* be pi) 180))
-	    )
-	  )
-	  (if (= aci "Radyan")
-	    (progn  
-            (while (or (= be 0) (< be 0.018) (> be 0.348))
-                (progn
-                (princ " En az 0.018 en fazla 0.349 radyan girebilirsiniz...") (terpri)
-                (setq be (getreal "\n Eðim açýsýný giriniz :"))
-	    ))))
+	  (setq secimhelis "CW")
+	 
+      
+    (setq mn 4 ) ;modül saysısı
+    (setq z 60 ) ;diş sayısı 
+    
+    (setq be 6) 
+    (setq be (/ (* be pi) 180))
+      
+         
+	 
+	  
 	  
         ;/ HELÝS HESAPLAR /
         (setq mt (/ mn (cos be))
@@ -65,11 +43,8 @@
 	      mcap 0.0
   	      yazi (strcat (itoa (fix (/ ddb 2))) " ve " (itoa (fix mci)) " deðerleri arasýnda giriniz..." ))
   	
-	(while (or (= mcap 0.0) (< mcap mci) (> mcap ddb))
-      	      (progn
-              (princ yazi) (terpri)
-              (setq mcap (getreal "\n Mil çapýný giriniz : "))
-	))
+    (setq mcap 50)
+      
 	; HELÝS ÝSTEKLER BÝTTÝ
 	      
   		
@@ -162,5 +137,6 @@
   	;/ HELÝS DÝÞLÝ ÇÝZÝMÝ 3B BÝTTÝ
 )
 
+    
 
 )
