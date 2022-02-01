@@ -32,7 +32,7 @@
 	      tda (- d (* y 2))
 	      radius (* 0.166 mn)
 	 )
-  	(setq mrk (list d d))
+  	(setq mrk (list 0 0))
 	  	(command "erase" "all" "")
   		(command "circle" mrk "d" (+ (* 20 mn) da))
 	      	(command "zoom" "extents")
@@ -43,12 +43,12 @@
 	      mcap 0.0
   	      yazi (strcat (itoa (fix (/ ddb 2))) " ve " (itoa (fix mci)) " deðerleri arasýnda giriniz..." ))
   	
-    (setq mcap 50)
+    (setq mcap 30)
       
 	; HELÝS ÝSTEKLER BÝTTÝ
 	      
   		
-  	;/ DÝÞ PROFÝL ÇÝZÝMÝ
+  	  	;/ DÝÞ PROFÝL ÇÝZÝMÝ
                 (command "osnap" "o")
   		(command "view" "_top")
   		(command "circle" mrk "d" d)
