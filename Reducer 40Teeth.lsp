@@ -9,7 +9,7 @@
 	  (setq secimhelis "CW")
      
 	  (setq mn 4 ) ;modül saysısı
-    (setq z (getint "\n Dis sayisini giriniz : "))
+    (setq z (getint "\n Diþ sayýsýný giriniz : "))
      
     (setq be 6) 
     (setq be (/ (* be pi) 180))
@@ -443,7 +443,7 @@
     (command "import" "ysl.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -38 328 300))
+    (command "pasteclip" (list -33 328 300))
     
     
     ;(command "import" "bear.sat" "")
@@ -453,86 +453,20 @@
     ;(command "pasteclip" (list 0 -3 0))
 
   
-    ;(command "view" "or" "top" )
-    ;(command "import" "rod.sat" "")
-    ;(command "copyclip" "l" "" )
-    ;(command "erase" "l" "" )
-    ;(command "pasteclip" (list -23 -23 -30))
-    ;(command "pasteclip" (list -23 340 -30))
-  
-  
-     (if (= z 20)
-      (progn
     (command "view" "or" "top" )
     (command "import" "rod.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
-    (command "pasteclip" (list -23 340 -30))
-    (command "pasteclip" (list -21 266 150))
-    ))
-  
-  
-    (if (= z 40)
-      (progn
-    (command "view" "or" "top" )
-    (command "import" "rod.sat" "")
-    (command "copyclip" "l" "" )
-    (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
+    (command "pasteclip" (list -23 -23 -30))
     (command "pasteclip" (list -23 340 -30))
     (command "pasteclip" (list -28 232 150))
-    ))
-
-    (if (= z 60)
-      (progn
-    (command "view" "or" "top" )
-    (command "import" "rod.sat" "")
-    (command "copyclip" "l" "" )
-    (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
-    (command "pasteclip" (list -23 340 -30))
-    (command "pasteclip" (list -20 180 150))
-    ))
-
-    (if (= z 70)
-      (progn
-    (command "view" "or" "top" )
-    (command "import" "rod.sat" "")
-    (command "copyclip" "l" "" )
-    (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
-    (command "pasteclip" (list -23 340 -30))
-    (command "pasteclip" (list -20 168 150))
-    ))
-  
 
     (command "view" "or" "top" )
     (command "import" "gear.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
+    (command "pasteclip" (list -88 175 300))
     
-    (if (= z 20)
-    (command "pasteclip" (list -33 250 300)) ; 20 diş okey
-    )
-  
-    (if (= z 40)
-    (command "pasteclip" (list -88 175 300)) ; 40 diş okey
-    )
-
-    (if (= z 60)
-    (command "pasteclip" (list -112 90 300)) ; 60 diş okey
-    )
-
-    (if (= z 70)
-    (command "pasteclip" (list -135 50 300)) ; 70 diş okey
-    )
-  
-    (if (= z 80)
-    (command "pasteclip" (list -155 13 300)) ; 80 diş sıgmadı
-    )
-
-    (command "zoom" "e" "")
 
     (command "zoom" "e" "")
     
