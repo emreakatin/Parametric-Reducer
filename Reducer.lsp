@@ -9,7 +9,19 @@
 	  (setq secimhelis "CW")
      
 	  (setq mn 4 ) ;modül saysısı
-    (setq z (getint "\n Dis sayisini giriniz : "))
+     
+     
+    (initget 1 "1/2 1/4 1/6 1/7 1/8")
+  	(setq bcd (getkword "Enter reduce ratio: "))
+  
+	  (if (= bcd "1/2") (setq z 20))
+	  (if (= bcd "1/4") (setq z 40))
+    (if (= bcd "1/6") (setq z 60))
+    (if (= bcd "1/7") (setq z 70))
+    (if (= bcd "1/8") (setq z 80))
+     
+     
+    ;(setq z (getint "\n Dis sayisini giriniz : "))
      
     (setq be 6) 
     (setq be (/ (* be pi) 180))
@@ -427,7 +439,7 @@
     (command "erase" "all" "")
     
     (command "view" "or" "top" )
-    (command "import" "srı.sat" "")
+    (command "import" "sri.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
     (command "pasteclip" (list 0 0 0))
@@ -518,6 +530,7 @@
   
     (if (= z 40)
     (command "pasteclip" (list -88 175 300)) ; 40 diş okey
+    
     )
 
     (if (= z 60)
@@ -532,6 +545,38 @@
     (command "pasteclip" (list -155 13 300)) ; 80 diş sıgmadı
     )
 
+    (if (= z 20)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 100" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
+  
+   
+    (if (= z 40)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 50" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
+  
+    (if (= z 60)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 33.333" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
+  
+    (if (= z 70)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 28.5714" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
+  
+    (if (= z 80)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Error" "" "")
+      
+    ))
+  
+  
     (command "zoom" "e" "")
 
     (command "zoom" "e" "")
