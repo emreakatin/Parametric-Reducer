@@ -12,7 +12,10 @@
      
      
     (initget 1 "1/2 1/4 1/6 1/7 1/8")
+    
+    
   	(setq bcd (getkword "Enter reduce ratio: "))
+    (setq trq (getkword "Enter Input Torque: "))
   
 	  (if (= bcd "1/2") (setq z 20))
 	  (if (= bcd "1/4") (setq z 40))
