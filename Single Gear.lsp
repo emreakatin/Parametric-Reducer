@@ -1,25 +1,36 @@
-(defun c:hels2 ()
+(defun c:hels ()
    
-    (progn
+   (progn
       	  (setq mn 0
                 z 0
 		secimhelis ""
                 be 0)
 
-	  
+	  (setq secimhelis "CW")
+     
+	  (setq mn 4 ) ;modül saysısı
+    (setq z 20) 
+     
+     
+    ;(initget 1 "1/2 1/4 1/6 1/7 1/8")
+    
+    
+  	;(setq bcd (getkword "Enter reduce ratio: "))
+    ;(setq trq (getkword "Enter Input Torque: "))
   
-	  
-      
-	  (setq secimhelis "CW"))
-    (setq mn 4 ) ; modül
-    (setq z  20 ) ; diş sayısı
-    (setq be 15 ) ; derece cinsinden eğim açısı
+	  ;(if (= bcd "1/2") (setq z 20))
+	  ;(if (= bcd "1/4") (setq z 40))
+    ;(if (= bcd "1/6") (setq z 60))
+    ;(if (= bcd "1/7") (setq z 70))
+    ;(if (= bcd "1/8") (setq z 80))
+     
+     
+    ;(setq z (getint "\n Dis sayisini giriniz : "))
+     
+    (setq be 6) 
     (setq be (/ (* be pi) 180))
-  
-  
-          
-	  
-	  
+      
+ 
 	  
         ;/ HELÝS HESAPLAR /
         (setq mt (/ mn (cos be))
@@ -34,22 +45,20 @@
 	      tda (- d (* y 2))
 	      radius (* 0.166 mn)
 	 )
-  	(setq mrk (list d d))
+  	(setq mrk (list 0 0))
 	  	(command "erase" "all" "")
   		(command "circle" mrk "d" (+ (* 20 mn) da))
 	      	(command "zoom" "extents")
 	        (command "erase" "l" "")
         
 	; HELÝS ÝSTEKLER DEVAM
-  	(setq mci (/ ddb 5)
+     
+	  (setq mci (/ ddb 5)
 	      mcap 0.0
   	      yazi (strcat (itoa (fix (/ ddb 2))) " ve " (itoa (fix mci)) " deðerleri arasýnda giriniz..." ))
   	
-	(while (or (= mcap 0.0) (< mcap mci) (> mcap ddb))
-      	      (progn
-              (princ yazi) (terpri)
-              (setq mcap 30 ) ;mil çapı 
-	))
+    (setq mcap 30)
+     
 	; HELÝS ÝSTEKLER BÝTTÝ
 	      
   		
@@ -138,9 +147,6 @@
 	  	(command "_cylinder" mrk  mcap b)
 	  	(command "subtract" gvde "" "l" "")
   		(command "view" "_swiso")
-  		(command "_vscurrent" "_C")
+  		;(command "_vscurrent" "_C")
   	;/ HELÝS DÝÞLÝ ÇÝZÝMÝ 3B BÝTTÝ
-)
-
-
-)
+ )
