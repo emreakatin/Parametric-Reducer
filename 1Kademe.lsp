@@ -481,9 +481,9 @@
     (command "import" "rod.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
-    (command "pasteclip" (list -23 340 -30))
-    (command "pasteclip" (list -21 266 150))
+    (command "pasteclip" (list -19 16 0))
+    (command "pasteclip" (list 0 100 0))
+    
     ))
   
       (if (= z 30)
@@ -492,9 +492,8 @@
     (command "import" "rod.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
-    (command "pasteclip" (list -23 340 -30))
-    (command "pasteclip" (list -21 266 150))
+    (command "pasteclip" (list -44 10 0))
+    (command "pasteclip" (list 0 100 0))
     ))
   
   
@@ -504,8 +503,8 @@
     (command "import" "rod.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -26 -29 -30))
-    (command "pasteclip" (list -23 340 -30))
+    (command "pasteclip" (list -37 -15 0))
+    (command "pasteclip" (list 0 100 0))
     ))
 
    
@@ -521,15 +520,15 @@
     )
 
     (if (= z 25)
-    (command "pasteclip" (list -33 250 300)) ; 20 diş okey
+    (command "pasteclip" (list -46 -11 150)) ; 25 diş okey
     )
 
     (if (= z 30)
-    (command "pasteclip" (list -33 250 300)) ; 20 diş okey
+    (command "pasteclip" (list -80 -26 150)) ; 30 diş okey
     )
   
     (if (= z 40)
-    (command "pasteclip" (list -88 175 300)) ; 40 diş okey
+    (command "pasteclip" (list -88 -73 150)) ; 40 diş okey
     
     )
 
