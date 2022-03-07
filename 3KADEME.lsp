@@ -15,14 +15,14 @@
     ;(initget 1 "1/2 1/4 1/6 1/7 1/8")
     
     
-  	;(setq bcd (getkword "Enter reduce ratio: "))
-    ;(setq trq (getkword "Enter Input Torque: "))
+  	(setq bcd (getkword "Enter reduce ratio: "))
+   
   
-	  ;(if (= bcd "1/2") (setq z 20))
-	  ;(if (= bcd "1/4") (setq z 40))
-    ;(if (= bcd "1/6") (setq z 60))
-    ;(if (= bcd "1/7") (setq z 70))
-    ;(if (= bcd "1/8") (setq z 80))
+	  (if (= bcd "1/8") (setq z 20))
+	  (if (= bcd "1/10") (setq z 40))
+    (if (= bcd "1/15") (setq z 60))
+    (if (= bcd "1/30") (setq z 70))
+    (if (= bcd "1/50") (setq z 80))
      
      
     ;(setq z (getint "\n Dis sayisini giriniz : "))

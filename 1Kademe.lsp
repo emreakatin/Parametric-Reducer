@@ -11,16 +11,24 @@
 	  (setq mn 4 ) ;modül saysısı
      
      
-    (initget 1 "1/2 1/25 1/3 1/4 ")
+    (initget 1 "1/1 4/5 2/3 1/2 ")
     
+    (setq girs (getint "\n enter first torque "))
+    (setq cks (getint "\n enter second torque "))
+     
+     
     
-  	(setq bcd (getkword "Enter reduce ratio: "))
+  ;(setq bcd (getkword "Enter reduce ratio: "))
     
-  
-	  (if (= bcd "1/2") (setq z 20))
-	  (if (= bcd "1/25") (setq z 25))
-    (if (= bcd "1/3") (setq z 30))
-    (if (= bcd "1/4") (setq z 40))
+    (if (= (/ girs cks) 1) (setq z 20))
+    (if (= (/ girs cks) 1.25) (setq z 25))
+    (if (= (/ girs cks) 1.5) (setq z 25))
+    (if (= (/ girs cks) 2) (setq z 40))
+	  
+    ;(if (= bcd "1/1") (setq z 20))
+	  ;(if (= bcd "4/5") (setq z 25))
+    ;(if (= bcd "2/3") (setq z 30))
+    ;(if (= bcd "1/2") (setq z 40))
    
      
      
@@ -424,7 +432,7 @@
 
 
 
-(defun c:set ()
+(defun c:br ()
   
 (command "osmode" "0" )
 (command "view" "or" "top" )
