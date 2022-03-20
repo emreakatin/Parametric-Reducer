@@ -9,20 +9,26 @@
 	  (setq secimhelis "CW")
      
 	  (setq mn 4 ) ;modül saysısı
-    (setq z 20) 
-     
+    
+    ;(setq girs (getint "\n enter first torque "))
+    ;(setq cks (getint "\n enter second torque "))
      
     ;(initget 1 "1/2 1/4 1/6 1/7 1/8")
     
+    ;(if (= (/ girs cks) 2) (setq z 20))
+    ;(if (= (/ girs cks) 4) (setq z 40))
+    ;(if (= (/ girs cks) 6) (setq z 60))
+    ;(if (= (/ girs cks) 7) (setq z 70))
+     (setq z 40)
+     
+    ;(setq bcd (getkword "Enter reduce ratio: "))
     
-  	(setq bcd (getkword "Enter reduce ratio: "))
-   
   
-	  (if (= bcd "1/8") (setq z 20))
-	  (if (= bcd "1/10") (setq z 40))
-    (if (= bcd "1/15") (setq z 60))
-    (if (= bcd "1/30") (setq z 70))
-    (if (= bcd "1/50") (setq z 80))
+	  ;(if (= bcd "1/2") (setq z 20))
+	  ;(if (= bcd "1/4") (setq z 40))
+    ;(if (= bcd "1/6") (setq z 60))
+    ;(if (= bcd "1/7") (setq z 70))
+    ;(if (= bcd "1/8") (setq z 80))
      
      
     ;(setq z (getint "\n Dis sayisini giriniz : "))
@@ -422,6 +428,16 @@
   
 
 )
+(defun road1 ()
+  
+  
+  
+  (setq cen1 (list 0 0 0))
+  (setq cem1 (list 30 0 0))
+  (command "cylinder" cen1 cem1 100) 
+  
+
+)
 
 
 
@@ -441,28 +457,31 @@
     (road)
     (command "export" "rod.sat" "all" "")
     (command "erase" "all" "")
+
+    (road1)
+    (command "export" "rod1.sat" "all" "")
+    (command "erase" "all" "")
     
     (command "view" "or" "top" )
     (command "import" "sri.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list 0 0 0))
-    (command "pasteclip" (list 100 200 0))
-    (command "pasteclip" (list -100 -200 0))
+    (command "pasteclip" (list -24 123 0))
+    (command "pasteclip" (list -57 -155 200))
   
     (command "view" "or" "top" )
     (command "import" "krmz.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -240 120 0))
+    (command "pasteclip" (list -300 -400 100))
 
   
     (command "view" "or" "top" )
     (command "import" "ysl.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -38 328 300))
-    
+    (command "pasteclip" (list -43 -80 0))
+    (command "pasteclip" (list -65 80 100))
     
     
     ;(command "import" "bear.sat" "")
@@ -486,44 +505,50 @@
     (command "import" "rod.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    ;(command "pasteclip" (list -26 -29 -30))
+    (command "pasteclip" (list -26 -29 -30))
     (command "pasteclip" (list -23 340 -30))
     (command "pasteclip" (list -21 266 150))
     ))
   
   
-    ;(if (= z 40)
-    ;  (progn
-    ;(command "view" "or" "top" )
-    ;(command "import" "rod.sat" "")
-    ;(command "copyclip" "l" "" )
-    ;(command "erase" "l" "" )
-    ;(command "pasteclip" (list -26 -29 -30))
-    ;(command "pasteclip" (list -23 340 -30))
-    ;(command "pasteclip" (list -28 232 150))
-    ;))
+    (if (= z 40)
+      (progn
+    (command "view" "or" "top" )
+    (command "import" "rod.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list -83 -182 0))
+    (command "pasteclip" (list -51 96 -170))
+    (command "import" "rod1.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list -30 -72 -30))
+    (command "pasteclip" (list -102 16 170))
+    
+    
+    ))
 
-    ;(if (= z 60)
-    ;  (progn
-    ;(command "view" "or" "top" )
-    ;(command "import" "rod.sat" "")
-    ;(command "copyclip" "l" "" )
-    ;(command "erase" "l" "" )
-    ;(command "pasteclip" (list -26 -29 -30))
-    ;(command "pasteclip" (list -23 340 -30))
-    ;(command "pasteclip" (list -20 180 150))
-    ;))
+    (if (= z 60)
+      (progn
+    (command "view" "or" "top" )
+    (command "import" "rod.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list -26 -29 -30))
+    (command "pasteclip" (list -23 340 -30))
+    (command "pasteclip" (list -20 180 150))
+    ))
 
-    ;(if (= z 70)
-    ;  (progn
-    ;(command "view" "or" "top" )
-    ;(command "import" "rod.sat" "")
-    ;(command "copyclip" "l" "" )
-    ;(command "erase" "l" "" )
-    ;(command "pasteclip" (list -26 -29 -30))
-    ;(command "pasteclip" (list -23 340 -30))
-    ;(command "pasteclip" (list -20 168 150))
-    ;))
+    (if (= z 70)
+      (progn
+    (command "view" "or" "top" )
+    (command "import" "rod.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list -26 -29 -30))
+    (command "pasteclip" (list -23 340 -30))
+    (command "pasteclip" (list -20 168 150))
+    ))
   
 
     (command "view" "or" "top" )
@@ -535,28 +560,28 @@
     (command "pasteclip" (list -33 250 300)) ; 20 diş okey
     )
   
-    ;(if (= z 40)
-    ;(command "pasteclip" (list -88 175 300)) ; 40 diş okey
+    (if (= z 40)
+    (command "pasteclip" (list -158 -38 200)) ; 40 diş okey
     
-    ;)
+    )
 
-    ;(if (= z 60)
-    ;(command "pasteclip" (list -112 90 300)) ; 60 diş okey
-    ;)
+    (if (= z 60)
+    (command "pasteclip" (list -112 90 300)) ; 60 diş okey
+    )
 
-    ;(if (= z 70)
-    ;(command "pasteclip" (list -135 50 300)) ; 70 diş okey
-    ;)
+    (if (= z 70)
+    (command "pasteclip" (list -135 50 300)) ; 70 diş okey
+    )
   
-    ;(if (= z 80)
-    ;(command "pasteclip" (list -155 13 300)) ; 80 diş sıgmadı
-    ;)
+    (if (= z 80)
+    (command "pasteclip" (list -155 13 300)) ; 80 diş sıgmadı
+    )
 
-    ;(if (= z 20)
-    ;  (progn
-    ;  (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 100" "" "")
-    ;  (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
-    ;))
+    (if (= z 20)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 100" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
   
    
     ;(if (= z 40)
@@ -565,23 +590,23 @@
       ;(command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
     ;))
   
-    ;(if (= z 60)
-     ; (progn
-      ;(command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 33.333" "" "")
-      ;(command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
-    ;))
+    (if (= z 60)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 33.333" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
   
-    ;(if (= z 70)
-      ;(progn
-      ;(command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 28.5714" "" "")
-      ;(command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
-    ;))
+    (if (= z 70)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Output RPM = 28.5714" "" "")
+      (command "text" "j" "cen" "500,100,0" "50" "0" "Input RPM = 200" "" "")
+    ))
   
-    ;(if (= z 80)
-      ;(progn
-      ;(command "text" "j" "cen" "500,0,0" "50" "0" "Error" "" "")
+    (if (= z 80)
+      (progn
+      (command "text" "j" "cen" "500,0,0" "50" "0" "Error" "" "")
       
-    ;))
+    ))
   
   
     (command "zoom" "e" "")

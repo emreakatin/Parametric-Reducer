@@ -18,7 +18,7 @@
      
      
     
-  ;(setq bcd (getkword "Enter reduce ratio: "))
+  ;(setq bcd (getkword "Enter reduce ratio: ")) kitaba bakılacak integerdan keyworde çevirmek için "rtos" string dönüşümü için
     
     (if (= (/ girs cks) 1) (setq z 20))
     (if (= (/ girs cks) 1.25) (setq z 25))
