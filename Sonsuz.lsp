@@ -9,44 +9,18 @@
 		be 0.0)
   
   	  (command "erase" "all" "")
-		
+		(setq mn 3) ;modul saysısı
+    (setq z1 5) ; ağız sayısı
+    (setq z2 30) ; karşılıklı diş sayısı 23 den byük
+   
+    (setq be 15) ;açı derece cinsinde 1-20
+   
+    (setq be (/ (* be pi) 180))
+    
   	; SONSUZ ÝSTEKLER
-  	  (while (or (= mn 0) (< mn 1))
-      	      (progn
-              (princ " 1 veya 1 den büyük giriniz...") (terpri)
-              (setq mn (getreal "\n Modül (Normal modül) giriniz : "))
-          ))
-          (while (or (= z1 0) (< z1 1))
-      	      (progn
-              (princ " 1 veya 1 den büyük giriniz...") (terpri) ; dikkat
-              (setq z1 (getint "\n Aðýz sayýsýný giriniz : "))
-          ))
-  	  (while (or (= z2 0) (< z2 23))
-      	      (progn
-              (princ " 23 veya 23 den büyük giriniz...") (terpri) ; dikkat
-              (setq z2 (getint "\n Kaþýlýk diþli diþ sayýsýný giriniz : "))
-          ))
-	  (initget 1 "Derece Radyan")
-          (setq aci (getkword "Helis açýsýnýn cinsi (Derece/Radyan) : "))
-	  (if (= aci "Derece")
-	    (progn  
-            (while (or (= be 0) (< be 1) (> be 20))
-                (progn
-                (princ " En az 1 en fazla 20 derece girebilirsiniz...") (terpri)
-                (setq be (getreal "\n Helis açýsýný giriniz :"))
-	    ))
-	    (setq be (/ (* be pi) 180))
-	    )
-	  )
-	  (if (= aci "Radyan")
-	    (progn  
-            (while (or (= be 0) (< be 0.018) (> be 0.348))
-                (progn
-                (princ " En az 0.018 en fazla 0.349 radyan girebilirsiniz...") (terpri)
-                (setq be (getreal "\n Helis açýsýný giriniz :"))
-	    ))
-	    )
-	  )
+  	  
+    
+	
 
   	
 	; SONSUZ ÝSTEKLER ARA
@@ -70,18 +44,21 @@
 	      s (/ px 2)
 	      )
   	; SONSUZ HESAPLAR BÝTTÝ
+      (setq mcap 30)
+      (setq mboy 150)
+   
 
   	; SONSUZ ÝSTEKLER DEVAM
-  	(setq mci (/ df1 2)
-	      mcap 0.0
-  	      yazi (strcat (itoa (fix df1)) " ve " (itoa (fix mci)) " deðerleri arasýnda giriniz..." ))
+  	;(setq mci (/ df1 2)
+	    ;  mcap 0.0
+  	  ;    yazi (strcat (itoa (fix df1)) " ve " (itoa (fix mci)) " deðerleri arasýnda giriniz..." ))
   	
-	(while (or (= mcap 0.0) (< mcap mci) (> mcap df1))
-      	      (progn
-              (princ yazi) (terpri)
-              (setq mcap (getreal "\n Mil çapýný giriniz : "))
-	))
-   	(setq mboy (getreal "\n Mil boyu giriniz : "))
+	;(while (or (= mcap 0.0) (< mcap mci) (> mcap df1))
+   ;   	      (progn
+    ;          (princ yazi) (terpri)
+     ;         (setq mcap (getreal "\n Mil çapýný giriniz : "))
+	;))
+   ;	(setq mboy (getreal "\n Mil boyu giriniz : "))
   	; SONSUZ ÝSTEKLER BÝTTÝ
   	
   	; TRAPEZ VÝDA DÝÞ PROFÝL ÇÝZÝMÝ
@@ -124,4 +101,11 @@
   	(command "view" "_swiso")
   	(command "_vscurrent" "_C")
  	; SONSUZ DÝÞLÝ ÇÝZÝMÝ BÝTTÝ
+   
+    (command "view" "or" "top" )
+    (command "import" "bir.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list -63 -120 -20 ))
+   
   ))
