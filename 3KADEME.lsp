@@ -15,7 +15,7 @@
      
     ;(initget 1 "1/2 1/4 1/6 1/7 1/8")
     
-    ;(if (= (/ girs cks) 2) (setq z 20))
+  
     (if (= (/ girs cks) 8) (setq z 40))
     ;(if (= (/ girs cks) 6) (setq z 60))
     ;(if (= (/ girs cks) 7) (setq z 70))
@@ -523,7 +523,7 @@
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
     (command "pasteclip" (list -30 -72 -30))
-    (command "pasteclip" (list -102 16 170))
+    (command "pasteclip" (list -202 -16 170))
     
     
     ))
@@ -561,7 +561,7 @@
     )
   
     (if (= z 40)
-    (command "pasteclip" (list -158 -38 200)) ; 40 diş okey
+    (command "pasteclip" (list -255s -72 200)) ; 40 diş okey
     
     )
 
