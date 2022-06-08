@@ -176,6 +176,7 @@
     
     (setq girs (getint "\n enter first torque "))
     (setq cks (getint "\n enter second torque "))
+    
      
     ;(initget 1 "1/2 1/4 1/6 1/7 1/8")
     
@@ -183,6 +184,7 @@
     (if (= (/ girs cks) 4) (setq z 40))
     (if (= (/ girs cks) 6) (setq z 60))
     (if (= (/ girs cks) 7) (setq z 70))
+    ;(if (> (/ girs cks) 7) (prompt "enter second torque ") )
      
      
     ;(setq bcd (getkword "Enter reduce ratio: "))

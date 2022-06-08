@@ -1,52 +1,41 @@
-(defun c:helc ()
+(defun c:knk ()
    
     (progn	        
 
-	  (setq m 0
-        z1 0
-	z2 0
-	be 0.0)
+	  (setq m 4 ;modül sayısı
+        z1 20 ; birinci diş sayısı 13den büyük
+	z2 20         ; ikinic diş sayısı
+	be 45)       ; açı derece cinsinden
+      
+  (setq be (/ (* be pi) 180))
+      
+      
+      
+    (setq girs (getint "\n enter first torque "))
+    (setq cks (getint "\n enter second torque "))
+      
+      
+    (if (= (/ girs cks) 1) (setq z1 20))
+    (if (= (/ girs cks) 1) (setq z2 20))
+    
+    (if (= (/ girs cks) 1.5) (setq z1 30))
+    (if (= (/ girs cks) 1.5) (setq z2 30))
+      
+    (if (= (/ girs cks) 2) (setq z1 40))
+    (if (= (/ girs cks) 2) (setq z2 40))
+      
+    (if (= (/ girs cks) 3) (setq z1 50))
+    (if (= (/ girs cks) 3) (setq z2 40))
+    
+      
+      
+      
+      ;(if (= (/ girs cks) 4) (setq z1 30) (setq z2 30))
+
   
 
-  ; KONÝK ÝSTEKLER
-  	 (while (or (= m 0) (< m 1))
-      	      (progn
-              (princ " 1 veya 1 den büyük giriniz...") (terpri)
-              (setq m (getreal "\n Modül giriniz : "))
-          ))
-          (while (or (= z1 0) (< z1 13))
-      	      (progn
-              (princ " 13 veya 13 den büyük giriniz...") (terpri)
-              (setq z1 (getreal "\n 1. Diþ sayýsýný giriniz : "))
-          ))
-  	  (while (or (= z2 0) (< z2 13))
-      	      (progn
-              (princ " 13 veya 13 den büyük giriniz...") (terpri)
-              (setq z2 (getreal "\n 2. Diþ sayýsýný giriniz : "))
-          ))
-  	  
-	  (initget 1 "Derece Radyan")
-          (setq aci (getkword "Eksenler arasý açý cinsini seçiniz (Derece/Radyan) : "))
-	  (if (= aci "Derece")
-	    (progn  
-            (while (or (= be 0) (< be 5) (> be 90))
-                (progn
-                (princ " En az 5 en fazla 90 derece girebilirsiniz...") (terpri)
-                (setq be (getreal "\n Eksenler arasý açýyý giriniz :"))
-	    ))
-	    (setq be (/ (* be pi) 180))
-	    )
-	  )
-	  (if (= aci "Radyan")
-	    (progn  
-            (while (or (= be 0) (< be 0.087) (> be 1.57))
-                (progn
-                (princ " En az 0.087 en fazla 1.57 radyan girebilirsiniz...") (terpri)
-                (setq be (getreal "\n Eksenler arasý açýyý giriniz :"))
-	    ))
-	    )
-	  )
-  	
+  ; KONÝK ÝSTEKLER yukarıda
+
   
   ; KONÝK ÝSTEKLER DEVAM
 
@@ -70,17 +59,19 @@
   
   ; KONÝK HESAPLAR BÝTTÝ
 
-   	; KONÝK ÝSTEKLER DEVAM
-  	(setq mci (/ df1 2)
-	      mcap 0.0
-  	      yazi (strcat (itoa (fix (/ df1 2))) " ve " (itoa (fix (/ mci 2))) " deðerleri arasýnda giriniz..." ))
+   	; KONÝK ÝSTEKLER DEVAM,
+    
+  	;(setq mci (/ df1 2)
+	   ;   mcap 0.0
+ ; 	 ;     yazi (strcat (itoa (fix (/ df1 2))) " ve " (itoa (fix (/ mci 2))) " deðerleri arasýnda giriniz..." ))
   	
-	(while (or (= mcap 0.0) (< mcap (/ mci 2)) (> mcap (/ df1 2) ))
-      	      (progn
-              (princ yazi) (terpri)
-              (setq mcap (getreal "\n Mil çapýný giriniz : "))
-	))
-   	(setq mboy (getreal "\n Mil boyu giriniz : "))
+	;(while (or (= mcap 0.0) (< mcap (/ mci 2)) (> mcap (/ df1 2) ))
+   ;   	      (progn
+    ;          (princ yazi) (terpri)
+     ;         (setq mcap (getreal "\n Mil çapýný giriniz : "))
+	;))
+    (setq mcap 20 )   ; bunun 36 ile 18 arasında olması gerekiyor
+   	(setq mboy 50 )
   	; KONÝK ÝSTEKLER BÝTTÝ
   
   ; DÝÞ PROFÝL HESAPLAR
@@ -209,6 +200,54 @@
   	(command "view" "_swiso")
   	(command "_vscurrent" "_C")
   	; KONÝK DÝÞLÝ OLUÞTURMA BÝTTÝ
+      
+      (if (= (/ girs cks) 1)
+      
+      (progn
+      (command "import" "conicgear.sat" "")
+      )
+      )
+      
+      (if (= (/ girs cks) 1.5)
+        
+      (progn
+      
+    (command "view" "or" "top" )
+    (command "import" "conicgear.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 41 -33 -5))
+
+      )
+      )
+      
+        (if (= (/ girs cks) 2)
+        
+      (progn
+      
+    (command "view" "or" "top" )
+    (command "import" "conicgear.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 43 -33 0))
+
+      )
+      )
+      
+        (if (= (/ girs cks) 3)
+        
+      (progn
+      
+    (command "view" "or" "top" )
+    (command "import" "conicgear.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 84 -42 0))
+
+      )
+      )
+    
+    
 	  
 )
 

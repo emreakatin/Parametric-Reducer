@@ -1,5 +1,6 @@
 (defun c:sbtr()
-(setq çap 40 )
+
+(setq çap 60 )
 
 
 (setq b 0)
