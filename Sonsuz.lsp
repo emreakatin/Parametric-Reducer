@@ -100,12 +100,52 @@
   	(command "union" "all" "")
   	(command "view" "_swiso")
   	(command "_vscurrent" "_C")
- 	; SONSUZ DÝÞLÝ ÇÝZÝMÝ BÝTTÝ
+ 	; SONSUZ DÝÞLÝ ÇÝZÝMÝ BÝTTÝ,
+   
+   
+   
    
     (command "view" "or" "top" )
-    (command "import" "bir.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -63 -120 -20 ))
+   
+    (setq girs (getint "\n enter first torque "))
+    (setq cks (getint "\n enter second torque "))
+
+   
+    (command "pasteclip" (list 0 0 0 ))
+   
+     (if (= (/ girs cks) 26)
+       
+       (progn
+  
+    (command "view" "or" "top" )
+    (command "import" "sonsuz26.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 106 -109 0 ))
+  
+
+
+     )
+
+     )
+        (if (= (/ girs cks) 40)
+       
+       (progn
+  
+    (command "view" "or" "top" )
+    (command "import" "sonsuz40.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 76 -163 0 ))
+  
+
+
+     )
+
+     )
+   
+
    
   ))
