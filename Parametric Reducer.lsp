@@ -249,8 +249,8 @@
     (command "import" "rod.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -37 -15 0))
-    (command "pasteclip" (list 0 100 0))
+    (command "pasteclip" (list -37 -15 -100))
+    (command "pasteclip" (list 0 100 100))
     ))
 
    
@@ -304,7 +304,20 @@
 
 
 
-
+;bu kısımda bearingleri yerleştiriyoruz
+      
+      
+          (if (= z 40)
+      (progn
+        (command "view" "or" "top" )
+        (command "import" "bear.sat" "")
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list -63 -32 50))
+        (command "pasteclip" (list -29 85 450))
+      
+        
+    ))
 
 
 
@@ -509,13 +522,13 @@
     (command "import" "sri.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list 0 0 0))
+    (command "pasteclip" (list 0 0 70))
   
     (command "view" "or" "top" )
     (command "import" "krmz.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -240 120 0))
+    (command "pasteclip" (list -240 120 70))
 
   
     (command "view" "or" "top" )
@@ -618,12 +631,32 @@
       
     (if (= z 20)
         (progn
+        
+        
+        (command "view" "or" "top" )
         (command "import" "bear.sat" "")
-        (setq bear (ssget "x"))
-        (command "copyclip" bear "" )
-        (command "erase" bear "")
-        (command "pasteclip" (list 0 0 600) "")
-        ;(command "pasteclip" (list 0 0 600))
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list -62 -40 400))
+        (command "pasteclip" (list -53 253 620)) 
+        (command "pasteclip" (list -62 -40 100))
+        (command "pasteclip" (list -53 330 100)) 
+        
+        )
+    )
+      
+       (if (= z 40)
+        (progn
+        
+        
+        (command "view" "or" "top" )
+        (command "import" "bear.sat" "")
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list -60 -43 400))
+        (command "pasteclip" (list -60 223 600))
+        (command "pasteclip" (list -60 -42 130))
+        (command "pasteclip" (list -60 328 130))
         
         )
     )
@@ -835,7 +868,7 @@
 
     (setq cen1 (list 0 0 0))
     (setq cem1 (list 30 0 0))
-    (command "cylinder" cen1 cem1 100) 
+    (command "cylinder" cen1 cem1 200) 
     
     (command "export" "rod1.sat" "all" "")
     (command "erase" "all" "")
@@ -890,7 +923,7 @@
     (command "import" "rod1.sat" "")
     (command "copyclip" "l" "" )
     (command "erase" "l" "" )
-    (command "pasteclip" (list -30 -72 -30))
+    (command "pasteclip" (list -30 -72 -100))
     (command "pasteclip" (list -202 -16 170))
     
     
@@ -954,7 +987,45 @@
     (command "pasteclip" (list -382 -90 200)) ; 60 diş okey
     )
 
-   
+   ;bearinglrein yerleşimi
+      
+          (if (= z 40)
+        (progn
+        
+        
+        (command "view" "or" "top" )
+        (command "import" "bear.sat" "")
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list -119 -222 500))
+        (command "pasteclip" (list -119 -222 150))
+        (command "pasteclip" (list  -84 61 300)) 
+        (command "pasteclip" (list  -84 61 -20))
+        (command "pasteclip" (list  -60 -105 20))
+        (command "pasteclip" (list  -234 -51 500))
+        
+        
+        
+        )
+    )
+      
+                (if (= z 60)
+        (progn
+        
+        
+        (command "view" "or" "top" )
+        (command "import" "bear.sat" "")
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list -122 -225 450))
+        (command "pasteclip" (list -122 -225 150))
+        (command "pasteclip" (list -85 57 300))
+        (command "pasteclip" (list -85 57 -20))
+  
+        
+        
+        )
+    )
   
    
 
@@ -1349,7 +1420,7 @@
    
     (command "pasteclip" (list 0 0 0 ))
    
-     (if (= (/ girs cks) 26)
+     (if (= (/ girs cks) 7)
        
        (progn
   
@@ -1364,7 +1435,7 @@
      )
 
      )
-        (if (= (/ girs cks) 40)
+        (if (= (/ girs cks) 10)
        
        (progn
   
@@ -1379,6 +1450,39 @@
      )
 
      )
+      
+      
+      
+          (if (= (/ girs cks) 10)
+      (progn
+    (command "view" "or" "top" )
+    (command "import" "rod1.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 127 -110 -100))
+    
+    ))
+      
+                (if (= (/ girs cks) 10)
+      (progn
+        (command "view" "or" "top" )
+        (command "import" "bear.sat" "")
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list 140 -140 50))
+        (command "pasteclip" (list 140 -140 200))
+         (command "view" "or" "top" )
+        (command "import" "bear1.sat" "")
+        (command "copyclip" "l" "" )
+        (command "erase" "l" "" )
+        (command "pasteclip" (list 0 0 0))
+        (command "pasteclip" (list 310 0 0))
+        
+      
+    
+    ))
+      
+      
       
     ))
   

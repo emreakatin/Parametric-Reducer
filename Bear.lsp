@@ -1,11 +1,12 @@
 (defun c:bearing ()
   
-(command "import" "bear.sat" "")
-(setq bear (ssget "x"))
-(command "copyclip" bear "" )
-(command "erase" bear "")
-(command "pasteclip" (list 0 0 0))
-  
+
+    (command "view" "or" "top" )
+    (command "import" "rod.sat" "")
+    (command "copyclip" "l" "" )
+    (command "erase" "l" "" )
+    (command "pasteclip" (list 0 0 0))
+    
 
   
 )
